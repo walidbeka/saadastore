@@ -1,0 +1,344 @@
+/* تطبيق الخط العريض والتنظيف الأساسي */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* لضمان بقاء الفوتر في أسفل الصفحة */
+}
+
+/* محتوى الصفحة */
+.content {
+    flex: 1; /* يملأ المساحة المتبقية بين الفوتر وأعلى الصفحة */
+}
+
+/* تنسيق الفوتر */
+footer {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* لضمان بقاء الفوتر في الأسفل */
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 15px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* محاذاة العناصر إلى اليمين */
+}
+
+.footer-menu li {
+    margin: 10px 0; /* مسافة بين العناصر */
+}
+
+.footer-menu li a {
+    text-decoration: none;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .footer-menu {
+        align-items: center; /* محاذاة العناصر في المنتصف على الشاشات الصغيرة */
+    }
+}
+
+/* تنسيق الهيدر */
+header {
+    display: flex;
+    justify-content: center; /* مركزية المحتوى في الهيدر */
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    position: relative; /* للسماح بالتحكم في مكان اللوجو */
+}
+
+header .logo {
+    position: absolute; /* تحديد موقع اللوجو بشكل مستقل */
+    left: 20px; /* مسافة اللوجو من اليسار */
+}
+
+header .logo img {
+    max-height: 75px;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end; /* محاذاة العناصر إلى اليمين */
+    width: 100%; /* عرض كامل لتوزيع العناصر بشكل متساوٍ */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* تنسيق القسم البطل */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #e0e0e0;
+}
+
+.hero .responsive-image {
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+}
+
+/* تنسيق الأقسام */
+.shop-by-category, .new-arrivals, .best-sellers {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.shop-by-category .categories, .new-arrivals .arrivals, .best-sellers .sellers {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.shop-by-category .category, .new-arrivals .arrival, .best-sellers .seller {
+    text-align: center;
+}
+
+.shop-by-category .category img, .new-arrivals .arrival img, .best-sellers .seller img {
+    width: 300px;
+    height: 300px;
+    border-radius: 25%;
+    object-fit: contain;
+}
+
+.products {
+    padding: 20px;
+}
+
+.products h2 {
+    text-align: center;
+}
+
+/* تنسيق الشبكة للمنتجات */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px; /* أقصى عرض للمنتج */
+    max-height: 300px; /* أقصى ارتفاع للمنتج */
+    overflow: hidden; /* إخفاء أي محتوى يتجاوز الحجم المحدد */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* يضمن أن الصور تكون مربعة */
+    object-fit: cover; /* يضمن أن الصورة تغطي المساحة بدون تشويه */
+}
+
+.categories, .arrivals, .sellers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.category, .arrival, .seller, .product {
+    flex: 1 1 200px;
+    margin: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .shop-by-category .categories, .new-arrivals .arrivals, .best-sellers .sellers {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 20px 5px;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* باقي الأكواد CSS الحالية */
+
+.responsive-image {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-grid, .categories, .arrivals, .sellers {
+        flex-direction: column;
+    }
+}
+
+
+/* تنسيق قسم الاتصال */
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.contact h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact form label {
+    margin-bottom: 5px;
+}
+
+.contact form input,
+.contact form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact form button:hover {
+    background-color: #0056b3;
+}
+
+/* تنسيق الفوتر */
+footer {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.footer-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    text-align: right;
+}
+
+.footer-sections h3 {
+    margin-bottom: 10px;
+}
+
+.footer-sections ul {
+    list-style: none;
+    padding: 25;
+    margin: 25;
+}
+
+.footer-sections ul li {
+    margin: 10px 0;
+}
+
+.footer-sections ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* تعديل لعرض الهواتف */
+@media (max-width: 768px) {
+    .footer-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* تنسيق قسم المنتجات */
+.products {
+    padding: 20px;
+}
+
+.products h2 {
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.product img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
